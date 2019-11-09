@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-clean-architecture-app",
-  "version": "1.0.0",
-  "description": "A simple API built with Node.js/Hapi.js that follows DDD + Clean Architecture principles",
+  "name": "nodejs-clean-architecture-parent-baseline",
+  "version": "0.0.1",
+  "description": "NodeJS parent project baseline for KYC Embraer",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon",
@@ -10,12 +10,8 @@
     "lint": "eslint --ignore-path .gitignore --fix . ",
     "coverage": "jest --coverage"
   },
-  "author": "Jérémy Buget",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jbuget/nodejs-clean-architecture-app.git"
-  },
+  "author": "Everton Arakaki",
+  "license": "DWTFYW",
   "dependencies": {
     "@hapi/boom": "^8.0.1",
     "@hapi/good": "^8.2.4",

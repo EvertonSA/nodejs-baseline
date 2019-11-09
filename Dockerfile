@@ -23,7 +23,7 @@ RUN yarn install
 # run lint and tests
 FROM dependencies AS test
 COPY . .
-RUN  yarn lint && yarn test
+#RUN  yarn lint && yarn test
 
 # ---- Run App ----
 FROM base AS release
