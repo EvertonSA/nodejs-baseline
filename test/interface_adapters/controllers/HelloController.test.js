@@ -4,7 +4,6 @@ const HelloController = require('../../../lib/interface_adapters/controllers/Hel
 jest.mock('../../../lib/application_business_rules/use_cases/SayHello');
 
 describe('#sayHelloWorld', () => {
-
   test('should resolves', async () => {
     // given
     SayHello.mockImplementationOnce(() => 'Bonjour monde !');
@@ -18,11 +17,10 @@ describe('#sayHelloWorld', () => {
 });
 
 describe('#sayHelloPerson', () => {
-
   test('should resolves', async () => {
     // given
     SayHello.mockImplementationOnce(() => 'Buongiorno John !');
-    const request = { params: { name: 'John' } };
+    const request = {params: {name: 'John'}};
 
     // when
     const response = await HelloController.sayHelloPerson(request);

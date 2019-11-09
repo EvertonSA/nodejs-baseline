@@ -6,12 +6,9 @@ const createServer = require('./lib/frameworks_drivers/webserver/server');
 
 // Start the server
 const start = async () => {
-
   try {
-
     await sequelize.sync();
     console.log('Connection to DB has been established successfully.');
-
   } catch (err) {
     console.error('Unable to connect to the database:', err);
   }

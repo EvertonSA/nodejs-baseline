@@ -48,7 +48,7 @@ app
 
 ### Flow of Control
 
-![Schema of flow of Control](/doc/Hapijs_Clean_Architecture.svg)
+TBD
 
 ### The Dependency Rule
 

@@ -5,14 +5,14 @@ const VerifyAccessToken = require('../../../lib/application_business_rules/use_c
 test('should resolve with the decoded user data (ID) when OAuth JWT access token is valid', async () => {
   // given
   mockAccessTokenManager.decode = () => {
-    return { uid: 1234 };
+    return {uid: 1234};
   };
 
   // when
-  const result = await VerifyAccessToken('some-jwt-access-token', { accessTokenManager: mockAccessTokenManager });
+  const result = await VerifyAccessToken('some-jwt-access-token', {accessTokenManager: mockAccessTokenManager});
 
   // then
-  expect(result).toEqual({ uid: 1234 });
+  expect(result).toEqual({uid: 1234});
 });
 
 test('should throw an Error when OAuth JWT access token is invalid', () => {
@@ -21,6 +21,6 @@ test('should throw an Error when OAuth JWT access token is invalid', () => {
     mockAccessTokenManager.decode = () => null;
 
     // when
-    VerifyAccessToken('a-wrong-jwt-access-token', { accessTokenManager: mockAccessTokenManager });
+    VerifyAccessToken('a-wrong-jwt-access-token', {accessTokenManager: mockAccessTokenManager});
   }).toThrowError('Invalid access token');
 });

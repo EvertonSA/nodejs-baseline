@@ -7,7 +7,7 @@ test('should resolve with all the users persisted in repository', async () => {
   mockUserRepository.find = () => ['John', 'Jane'];
 
   // when
-  const users = await ListUsers({ userRepository: mockUserRepository });
+  const users = await ListUsers({userRepository: mockUserRepository});
 
   // then
   expect(users).toEqual(['John', 'Jane']);

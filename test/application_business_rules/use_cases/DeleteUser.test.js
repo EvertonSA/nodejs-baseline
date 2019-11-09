@@ -7,7 +7,7 @@ test('should resolve (without result)', async () => {
   mockUserRepository.remove = jest.fn(() => true);
 
   // when
-  await DeleteUser(123, { userRepository: mockUserRepository });
+  await DeleteUser(123, {userRepository: mockUserRepository});
 
   // then
   expect(mockUserRepository.remove).toHaveBeenCalledWith(123);

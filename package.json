@@ -7,6 +7,7 @@
     "dev": "nodemon",
     "start": "node index.js",
     "test": "jest",
+    "lint": "eslint --ignore-path .gitignore --fix . ",
     "coverage": "jest --coverage"
   },
   "author": "Jérémy Buget",
@@ -30,6 +31,8 @@
     "sequelize": "^5.21.1"
   },
   "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-google": "^0.14.0",
     "jest": "^24.9.0",
     "nodemon": "^1.19.4",
     "sqlite3": "^4.1.0"

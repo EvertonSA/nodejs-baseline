@@ -9,13 +9,15 @@ const GetAccessToken = require('../../../lib/application_business_rules/use_case
 
 test('should resolve with a generated JWT access token when credentials are ok', async () => {
   // given
-  mockUserRepository.getByEmail = () => { return { password: 'abcd-1234' } };
+  mockUserRepository.getByEmail = () => {
+    return {password: 'abcd-1234'};
+  };
   mockAccessTokenManager.generate = () => 'generated-jwt-access-token';
 
   // when
   const accessToken = await GetAccessToken('john@mail.com', 'abcd-1234', {
     userRepository: mockUserRepository,
-    accessTokenManager: mockAccessTokenManager
+    accessTokenManager: mockAccessTokenManager,
   });
 
   // then
@@ -29,7 +31,7 @@ test('should reject when user was not found', () => {
   // when
   const promise = GetAccessToken('john@mail.com', 'abcd-1234', {
     userRepository: mockUserRepository,
-    accessTokenManager: mockAccessTokenManager
+    accessTokenManager: mockAccessTokenManager,
   });
 
   // then
@@ -38,12 +40,14 @@ test('should reject when user was not found', () => {
 
 test('should reject when password did not match', () => {
   // given
-  mockUserRepository.getByEmail = () => { return { password: 'abcd-1234' } };
+  mockUserRepository.getByEmail = () => {
+    return {password: 'abcd-1234'};
+  };
 
   // when
   const promise = GetAccessToken('john@mail.com', 'wrong-password', {
     userRepository: mockUserRepository,
-    accessTokenManager: mockAccessTokenManager
+    accessTokenManager: mockAccessTokenManager,
   });
 
   // then

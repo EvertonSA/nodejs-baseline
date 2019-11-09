@@ -9,7 +9,7 @@ test('should resolve with the newly persisted user (augmented with an ID)', asyn
   mockUserRepository.persist = jest.fn(() => persistedUser);
 
   // when
-  const user = await CreateUser('John', 'Doe', 'john.doe@email.com', 'P@s$W0rD', { userRepository: mockUserRepository });
+  const user = await CreateUser('John', 'Doe', 'john.doe@email.com', 'P@s$W0rD', {userRepository: mockUserRepository});
 
   // then
   expect(mockUserRepository.persist).toHaveBeenCalledWith(new User(null, 'John', 'Doe', 'john.doe@email.com', 'P@s$W0rD'));
