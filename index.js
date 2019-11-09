@@ -31,7 +31,6 @@ const start = async () => {
   try {
     const server = await createServer();
     server.listen(3000);
-    console.log("teatandongqwignwolçkm")
   } catch (err) {
     console.log(err);
     process.exit(1);
