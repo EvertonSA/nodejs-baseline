@@ -8,7 +8,7 @@ yarn test
 yarn start
 ```
 
-In a browser, open [http://localhost:3000/hello](http://localhost:3000/health).
+In a browser, open [http://localhost:3000/hello](http://localhost:3000/hello).
 
 
 ### Flow of Control

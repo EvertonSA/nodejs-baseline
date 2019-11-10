@@ -1,7 +1,7 @@
 {
   "name": "nodejs-clean-architecture-parent-baseline",
   "version": "0.0.1",
-  "description": "NodeJS parent project baseline for KYC Embraer",
+  "description": "NodeJS parent project baseline",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon",

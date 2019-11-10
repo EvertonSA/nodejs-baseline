@@ -24,7 +24,7 @@ const start = async () => {
     await sequelize.sync();
     console.log('Connection to DB has been established successfully.');
   } catch (err) {
-    console.error('Unable to connect to the database:', err);
+    logger.fatal('Unable to connect to the database:', err);
   }
 
   // Webserver connection
@@ -32,7 +32,7 @@ const start = async () => {
     const server = await createServer();
     server.listen(3000);
   } catch (err) {
-    console.log(err);
+    logger.fatal(err);
     process.exit(1);
   }
 
