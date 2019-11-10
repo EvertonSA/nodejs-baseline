@@ -8,7 +8,7 @@ catchErrors([]);
 const { gracefulShutdown } = require("@banzaicloud/service-tools");
 gracefulShutdown([]);
 
-// Structured JSON logger TDB https://banzaicloud.com/blog/nodejs-in-production/
+// Structured JSON logger https://banzaicloud.com/blog/nodejs-in-production/
 const { logger } = require("@banzaicloud/service-tools");
 logger.interceptConsole();
 
