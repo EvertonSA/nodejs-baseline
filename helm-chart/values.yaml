@@ -1,0 +1,109 @@
+###################################################################
+#Yaml Name	    : values.yaml
+#Description	  : helm values file for nodejs base project
+#Note           : values are default, but can be customized
+#Args          	: no args needed
+#Author       	: Everton Seiei Arakaki
+#Email         	: everton.arakaki@altran.com.br
+###################################################################
+
+####################################################
+# Application base configuration         
+####################################################
+
+# image to be deployed
+image:
+  repository: banzaicloud/nodejs-example
+  tag: latest
+  pullPolicy: Always
+
+# container registry secret, must exist in the namespace
+imagePullSecrets:
+  - default-pull-secret
+
+# number of ReplicaSet's controlled by Deployment 
+replicaCount: 3
+
+####################################################
+# Application security configuration         
+####################################################
+
+securityContext:
+  enabled: true
+  fsGroup: 1001
+  runAsUser: 1001
+
+####################################################
+# Application configuration variables     
+####################################################
+
+# Raw Envirolment Variables Injection 
+env: []
+  # - name: MONGODB_USERNAME
+  #   value: user
+  # - name: MONGODB_URI
+  #   value: "mongodb://localhost/your-database"
+
+# Kubernetes Native Envirolment Variables Injection
+envFrom: []
+  # - secretRef:
+  #     name: secret-name
+
+# Secrets injection
+secret: {}
+#    MONGODB_PASSWORD: YourBase64EncodedPassword=
+
+####################################################
+# Kubernetes readiness and liveness probes
+####################################################
+
+readinessProbe:
+  httpGet:
+    path: /health/readiness
+    port: 3000
+  initialDelaySeconds: 2
+  periodSeconds: 2
+  failureThreshold: 2
+  successThreshold: 1 # default
+  timeoutSeconds: 1 # default
+
+livenessProbe:
+  httpGet:
+    path: /health/liveness
+    port: 3000
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  failureThreshold: 3 # default
+  successThreshold: 1 # default
+  timeoutSeconds: 1 # default
+
+####################################################
+# Kubernetes Application Service Definition
+####################################################
+
+service:
+  type: ClusterIP
+  internalPort: 3000  
+  externalPort: 3000
+
+####################################################
+# Application Resource Definitions
+####################################################
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
